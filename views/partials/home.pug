@@ -1,0 +1,11 @@
+div
+  //- ul.photos-list
+  //-   li(ng-repeat="photo in photosList")
+  //-     div.pmPhotoThumb
+  ul.albums-list
+    li(ng-repeat="album in albums")
+      a(href="#/album/view/{{album._id}}",style="background-image:url({{album.cover.filepath}})")
+        .details
+          .name {{ album.name }}
+          .count {{ album.photos.length }} photos
+

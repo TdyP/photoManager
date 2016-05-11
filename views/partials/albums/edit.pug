@@ -1,0 +1,25 @@
+div.edit-album-wrapper
+  .input-group
+    span.input-group-addon Name
+    input.form-control(ng-model="album.name",placeholder="Name")
+  .input-group
+    span.input-group-addon Description
+    textarea.form-control(ng-model="album.description",placeholder="Description")
+  .input-group
+    span.input-group-addon Date
+    input.form-control(uib-datepicker-popup="",ng-model="album.date",is-open="datePopup.opened",datepicker-options="dateOptions",ng-required="true",close-text="Close")
+    span.input-group-btn
+      button.btn.btn-default(type="button",ng-click="openDatePopup()")
+        i.glyphicon.glyphicon-calendar
+  .tags
+    label Tags
+    pm-tag-editor(ng-model="album")
+
+  .cover-select
+    label Cover
+    ul.photos-list
+      li.pmCoverSelector(ng-repeat="photo in album.photos")
+
+  .btn-group
+    button.btn.btn-primary(ng-click="save()",value="Save") Save
+    button.btn.btn-default(ng-click="cancel()") Cancel

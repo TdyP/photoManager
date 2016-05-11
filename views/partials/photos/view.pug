@@ -1,0 +1,23 @@
+div.photo-wrapper
+  .image
+    img.pm-photo-view(ng-src="{{ photo.filepath }}")
+    a.prev(href="{{photo.prevUrl}}",ng-show="photo.prevUrl")
+      span.arrow.fa.fa-chevron-left
+    a.next(href="{{photo.nextUrl}}",ng-show="photo.nextUrl")
+      span.arrow.fa.fa-chevron-right
+  div.infos.row.show-grid
+    div.col-md-6
+      h3 {{ photo.name }}
+      div.description {{photo.description}}
+    div.col-md-6
+      div.delete_link(ng-click="deletePhoto(photo._id)")
+        span.fa.fa-trash
+      div.edit_link
+        a.fa.fa-pencil(href="#/edit/{{ photo._id }}")
+      .exif
+        span {{ photo.exif.date | date : "medium" }}
+        br
+        span
+          i.glyphicon.glyphicon-camera &nbsp;
+          span {{ photo.exif.make + " " + photo.exif.model}} - f/{{ photo.exif.aperture }} - 1/{{ 1 / photo.exif.exposure_time }}s - ISO {{ photo.exif.ISO }} - {{ photo.exif.focal_length }}mm
+      pm-tags-list(ng-model="photo")

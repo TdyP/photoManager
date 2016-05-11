@@ -1,0 +1,31 @@
+* Resize at upload
+- Albums
+  * Create
+  * Add photos
+  - Organize
+  - Cover photo: first by default
+- Tests
+* Nav next/prev photo
+  - Always keep album id
+* justified gallery
+* Refactoring promises
+- Errors handling
+* Upload
+  * Add description, name
+- Tags
+- Private/public access
+- Github
+- Responsive design
+- Rotate image
+- Config
+    - address mongo
+    - images sizes
+- Suppr phot => suppr ref album
+- translation
+* Search engine
+  - Real time search
+  - Index
+- Mass edit
+* Date format
+- Fullscreen mode
+- Pagination

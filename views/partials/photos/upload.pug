@@ -1,0 +1,34 @@
+#upload-container(nv-file-drop="",uploader="uploader")
+  .zone(nv-file-over="",over-class="over-zone",uploader="uploader")
+    span DROP FILE HERE
+    //- input(type="file",nv-file-select="",uploader="uploader",multiple)
+  .btn-group
+    button.btn.btn-primary(ng-click="uploader.uploadAll()",ng-disabled="!uploader.getNotUploadedItems().length") Upload all
+    button.btn.btn-default(ng-click="uploader.cancelAll()",ng-disabled="!uploader.isUploading") Cancel all
+    button.btn.btn-warning(ng-click="uploader.clearQueue()",ng-disabled="!uploader.queue.length") Remove all
+  .input-group
+    span.input-group-addon Album
+    select.form-control(ng-model="selectedAlbum",placeholder="Select album")
+      option(ng-repeat="album in albums",value="{{album._id}}") {{album.name}}
+  ul
+    li.upload-queue-item(ng-repeat="item in uploader.queue")
+      div.preview(ng-show="uploader.isHTML5")
+        div(pm-upload-thumb="{ file: item._file, width: 200, height: 200, keep_ratio: true }")
+
+      uib-progressbar(animate="false" ,value="item.progress",type="success")
+        b {{item.progress}}%
+      div.infos
+        .input-group
+          span.input-group-addon Name
+          input.form-control(ng-model="item.name",placeholder="Name")
+        .input-group
+          span.input-group-addon Description
+          description.form-control(ng-model="item.description",placeholder="Description")
+
+      //- div Size: {{ item.file.size/1024/1024|number:2 }} Mb
+      //- div
+      //-   button.btn-valid(ng-click="item.upload()",ng-disabled="item.isReady || item.isUploading || item.isSuccess") Upload
+      //-   button.btn-cancel(ng-click="item.cancel()",ng-disabled="!item.isUploading") Cancel
+      //-   button.btn(ng-click="item.remove()") Remove
+
+

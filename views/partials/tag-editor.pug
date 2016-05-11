@@ -1,0 +1,8 @@
+.tag_editor
+  .tags.removable
+    span(ng-repeat="tag in model.tags")
+        span.tag-name {{tag}}
+        i.delete(ng-click="removeTag(tag)") &#x2715;
+  .input-group.edit-tags
+    span.input-group-addon Add new tag
+    input.form-control(placeholder="Tag",ng-keyup="addTag($event)")

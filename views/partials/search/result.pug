@@ -1,0 +1,5 @@
+.search_result_wrapper
+  h3 Search Result for "{{searchQuery}}"
+  .grid_wrapper
+    hj-gridify.photos_grid(hj-gridify-item-as="photo",hj-gridify-options="{collection: results,perRow: 5,averageRatio: 1.5,gutter: 5,maxRowHeight: 250}")
+      div.pm-grid-preview

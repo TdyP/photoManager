@@ -1,0 +1,19 @@
+.album
+  .cover(style="background-image:url(/{{album.cover.filepath}})")
+    .title
+      h2 {{ album.name }}
+      .description {{ album.description }}
+      .date {{ album.date | date : 'mediumDate' }}
+      .count {{ album.photos.length }} photos
+    .details
+      .tags
+        span(ng-repeat="tag in album.tags") {{tag}}
+      .links
+        a(href="#/album/edit/{{ album._id }}")
+          span.fa.fa-pencil
+        a.delete_link(ng-click="deleteAlbum()")
+          span.fa.fa-trash
+
+  .grid_wrapper
+      hj-gridify.photos_grid(hj-gridify-item-as="photo",hj-gridify-options="{collection: album.photos,perRow: 5,averageRatio: 1.5,gutter: 5,maxRowHeight: 250}")
+          div.pm-grid-preview

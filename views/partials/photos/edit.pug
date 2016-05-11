@@ -1,0 +1,16 @@
+div.edit-wrapper
+  .preview
+    img(ng-src="{{ photo.filepath }}")
+  .input-group
+    span.input-group-addon Name
+    input.form-control(ng-model="photo.name",placeholder="Name")
+  .input-group
+    span.input-group-addon Description
+    textarea.form-control(ng-model="photo.description",placeholder="Description")
+  .tags
+    label Tags
+    pm-tag-editor(ng-model="photo")
+
+  .btn-group
+    button.btn.btn-primary(ng-click="update()",value="Save") Save
+    button.btn.btn-default(ng-click="cancel()") Cancel
